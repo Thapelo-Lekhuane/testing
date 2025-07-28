@@ -1,0 +1,9 @@
+#! app-C:\Users\User\Desktop\uventory-persistentVolumeClaim.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: app-c--users-user-desktop-uventory
+    namespace: uventory
+spec:
+    storageClassName: "hostpath" # see docker/desktop-storage-provisioner

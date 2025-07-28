@@ -1,0 +1,18 @@
+#! app-C:\Users\User\Desktop\uventory-persistentVolumeClaim.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: app-c--users-user-desktop-uventory
+    namespace: uventory
+    labels:
+        com.docker.compose.service: app
+        com.docker.compose.volume: C:\Users\User\Desktop\uventory
+spec:
+    accessModes:
+        # TODO would need to check which services use this volume
+        - ReadWriteOnce
+    volumeMode: Filesystem
+    resources:
+        requests:
+            storage: 100Mi
