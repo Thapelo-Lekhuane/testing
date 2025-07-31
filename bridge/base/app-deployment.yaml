@@ -1,0 +1,43 @@
+#! app-deployment.yaml
+# Generated code, do not edit
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: app
+    namespace: uventory
+    labels:
+        com.docker.compose.project: uventory
+        com.docker.compose.service: app
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            com.docker.compose.project: uventory
+            com.docker.compose.service: app
+    strategy:
+        type: Recreate
+    template:
+        metadata:
+            labels:
+                com.docker.compose.project: uventory
+                com.docker.compose.service: app
+                com.docker.compose.network.default: "true"
+        spec:
+            containers:
+                - name: app
+                  image: uventory-app
+                  imagePullPolicy: IfNotPresent
+                  command: ['npm run start:dev']
+                  env:
+                    - name: DATABASE_URL
+                      value: "postgresql://postgres:PvnjCSjymiigAogMuRdNcjLXKPSEpBuJ@hopper.proxy.rlwy.net:17566/railway"
+                  ports:
+                    - name: app-3000
+                      containerPort: 3000
+                  volumeMounts:
+                    - name: app
+                      mountPath: /app
+            volumes:
+                - name: app
+                  hostPath:
+                    path: C:\Users\User\Desktop\uventory
