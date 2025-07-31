@@ -20,3 +20,4 @@ dist
 # information for Eclipse / Flash Builder.
 GITHUB_ISSUES.md
 KANBAN_BOARD.md
+node_modules
